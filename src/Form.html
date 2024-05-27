@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<header>
+    <header>
+        <h1>تیزپا</h1>
+    </header>
+
+    <body>
+        <div class="search-bar">
+            <input type="text" placeholder="دنبال چی میگردی...">
+            <button type="submit"><img href="search.png"></button>
+        </div>
+
+        <div>
+            <button onclick="window.location.href = 'signup.html';">عضویت</button>
+            <button onclick="window.location.href = 'login.html';">ورود</button>
+        </div>
+
+        <nav style="clear: both;">
+            <ul>
+                <li><a href="index.html">خانه</a></li>
+                <li><a href="products.html">محصولات</a></li>
+                <li><a href="table.html">راهنمای سایز</a></li>
+                <li><a href="form.html">تقاضای همکاری</a></li>
+                <li><a href="info.html">درباره ما</a></li>
+                <li><a href="contact.html">تماس با ما</a></li>
+
+            </ul>
+        </nav>
+
+
+    </body>
+</header>
+<br>
+
+<body>
+    <section>
+        <div>
+            <form action="#"
+                style="background-color: lightblue; text-align: center; padding: 1.5cm; margin-left: 50px;  margin-right: 50px;">
+                <h1>تقاضای همکاری</h1>
+                <label for="name">لطفاً نام خود را وارد کنید</label>
+                <input type="text" placeholder="نام" name="name" />
+
+                <br>
+
+                <label for="edu">لطفاً مدرک تحصیلی خود را وارد کنید</label>
+                <input type="text" placeholder="مدرک" name="edu" />
+
+                <br>
+
+                <p>دورکاری یا حضور در محل کار را ترجیح می‌دهید؟</p>
+                <input type="radio" id="remote" name="work" /> دورکاری
+                <input type="radio" id="onsite" name="work" /> حضور
+                <input type="radio" id="both" name="work" /> فرقی ندارد
+
+                <br>
+
+                <p>وضعیت تاهل</p>
+                <select>
+                    <option>مجرد</option>
+                    <option>متاهل</option>
+                </select>
+                <br>
+                <label for="file">لطفاً عکس کارت ملی خود را وارد کنید</label>
+                <input type="file" name="file" />
+
+                <br>
+                <p>اگر نکته‌ای لازم است بگویید</p>
+                <textarea
+                    style="height: 150px; width: 350px; font-family: Arial, Helvetica, sans-serif; font-size: 15px;"></textarea>
+
+                <br>
+                <p>حوزه علاقه‌مندی خود را بگویید</p>
+                <input type="checkbox" /> خدمات فروش
+                <input type="checkbox" /> انبارداری
+                <input type="checkbox" /> طراحی وب
+                <br>
+
+                <input type="submit" value="تایید" />
+
+            </form>
+        </div>
+    </section>
+
+</body>
+<br>
+<div>
+    <div class="rectangle" style="height: 150px; background-color: lightgrey;">
+        <div class="row">
+            <div class="column">
+                <a href="customer-support.html"><b>خدمات مشتریان</b></a>
+                <br><a href="faq.html">سوالات متداول</a>
+                <a href="returns.html"><br>بازدگرداندن کالا</a>
+                <a href="terms.html"><br>شرایط استفاده</a>
+                <a href="privacy-policy.html"><br>حریم شخصی</a>
+            </div>
+            <div class="column">
+                <a href="about-us.html"><b>اطلاعات ما</b></a>
+                <br><a href="contact-us.html">درباره ما</a>
+                <br><a href="contact-us.html">تماس با ما</a>
+            </div>
+            <div class="column">
+                تمامی حقوق این سایت متعلق به تیزپا می‌باشد.
+            </div>
+        </div>
+    </div>
+</div>
+
+</html>

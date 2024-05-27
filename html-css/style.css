@@ -32,13 +32,13 @@ button {
     color: black;
     background-color: #f9f9f9;
     color: black;
-    float: right;
     padding: 4px 17px;
     border: 2px solid black;
     border-radius: 20px;
     cursor: pointer;
     margin-right: 3px;
 }
+
 
 button:hover {
     background-color: #2F4F4F;
@@ -79,6 +79,7 @@ button:active {
     background-color: #f9f9f9;
     color: black;
     border-radius: 20px;
+    padding-bottom: 7%;
 }
 
 .search-bar button:hover {
@@ -152,3 +153,21 @@ form {
     border-radius: 8px;
     padding: 10px;
 }
+
+.center {
+    border: 3px;
+    position: absolute;
+    top: 50% ;
+    left: 50%;
+    padding: 30px;  
+    width: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.child {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -50px 0 0 -50px;
+  }
+

@@ -6,6 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>راهنمای سایز - کفش‌های کتونی تیزپا</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.js"
+        integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous">
+        </script>
+    <script>
+        $(function () {
+            $("#header").load("header.html");
+            $("#footer").load("footer.html");
+        });
+    </script>
     <style>
         /* Add your CSS styles here */
         body {
@@ -27,39 +36,8 @@
     </style>
 </head>
 
-<header>
-    <header>
-        <h1>تیزپا</h1>
-    </header>
-
-    <body>
-        <div class="search-bar">
-            <input type="text" placeholder="دنبال چی میگردی...">
-            <button type="submit"></button>
-        </div>
-
-        <div>
-            <button onclick="window.location.href = 'signup.html';">عضویت</button>
-            <button onclick="window.location.href = 'login.html';">ورود</button>
-        </div>
-
-        <nav style="clear: both;">
-            <ul>
-                <li><a href="index.html">خانه</a></li>
-                <li><a href="products.html">محصولات</a></li>
-                <li><a href="table.html">راهنمای سایز</a></li>
-                <li><a href="form.html">تقاضای همکاری</a></li>
-                <li><a href="info.html">درباره ما</a></li>
-                <li><a href="contact.html">تماس با ما</a></li>
-
-            </ul>
-        </nav>
-
-    </body>
-</header>
-<br>
-
 <body>
+    <div id="header"></div>
     <div class="size-guide">
         <h1>راهنمای سایز - کفش‌های کتونی تیزپا</h1>
         <table>
@@ -97,30 +75,7 @@
             </tbody>
         </table>
 
-
-
-        <br>
-        <div>
-            <div class="rectangle" style="height: 150px; background-color: lightgrey;">
-                <div class="row">
-                    <div class="column">
-                        <a href="customer-support.html"><b>خدمات مشتریان</b></a>
-                        <br><a href="faq.html">سوالات متداول</a>
-                        <a href="returns.html"><br>بازدگرداندن کالا</a>
-                        <a href="terms.html"><br>شرایط استفاده</a>
-                        <a href="privacy-policy.html"><br>حریم شخصی</a>
-                    </div>
-                    <div class="column">
-                        <a href="about-us.html"><b>اطلاعات ما</b></a>
-                        <br><a href="contact-us.html">درباره ما</a>
-                        <br><a href="contact-us.html">تماس با ما</a>
-                    </div>
-                    <div class="column">
-                        تمامی حقوق این سایت متعلق به تیزپا می‌باشد.
-                    </div>
-                </div>
-            </div>
-        </div>
+        <div id="footer"></div>
 </body>
 
 </html>

@@ -1,33 +1,102 @@
-<header>
-    <header style="margin-bottom: 20px;">
-        <img style="width: 25%;margin-bottom: -3%; position: relative; left:50%; transform: translate(-50%, -10%); " src="../images/logo2.png">
-    </header>
+<!DOCTYPE html>
 
-    <body>
-        <div class="search-bar">
-            <input type="text" placeholder="Search...">
-            <button type="submit"></button>
-        </div>
-
-        <div>
-            <button styel="" id="login">Login | Register</button>
-
-        </div>
-        <br>
-        <hr>
-        <br>
-        <nav style="clear: both;" >
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="products.html">Products</a></li>
-                <li><a href="table.html">Sizing Guide</a></li>
-                <li><a href="form.html">Job Oppurtunities</a></li>
-                <li><a href="about-us.html">About Us</a></li>
-                <li><a href="contact.html">Contact Us</a></li>
-
-            </ul>
-        </nav>
-        <br>
-        <hr>
-    </body>
+<header style="margin-bottom: 20px;">
+    <img  onclick="window.location.href='about-us.html'" id="logo" style="cursor:pointer; width: 25%;margin-bottom: -3%; position: relative; left:50%; transform: translate(-50%, -10%); "
+        src="../images/logo2.png">
 </header>
+
+<body>
+    <div class="search-bar" style="position:relative; right:35px">
+        <input type="text" placeholder="Search...">
+        <button type="submit"></button>
+    </div>
+
+    <div>
+        <button id="loginBtn" style="position:relative; transform: translate(35px)"></button>
+
+    </div>
+    <br>
+    <hr style="width:60% ;">
+    <br>
+    <nav style="clear: both;">
+        <ul>
+            <div class="header-list">
+            <li><a href="index.html" style="background-image: '/images/twitter.png';">Home</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="table.html">Sizing Guide</a></li>
+            <li><a href="form.html">Job Oppurtunities</a></li>
+            <li><a href="about-us.html">About Us</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+        </div>
+        </ul>
+    </nav>
+    <br>
+    <hr style="width:60% ;">
+
+
+    <div id="myModal" class="modal">
+
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Log in to Your Account</h2>
+            <form id="FormId">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <div class="form-group">
+                    <button type="submit" value="Submit" >Login</button> <!-- submit button -->
+                </div>
+            </form>
+        </div>
+
+    </div>
+</body>
+</html>
+
+<script>
+    var modal = document.getElementById("myModal");
+    var loginBtn = document.getElementById("loginBtn");
+    var closer = document.getElementsByClassName("close")[0];
+    var userNameInLocalStorage = localStorage.getItem("username");
+
+    if(userNameInLocalStorage) {
+        loginBtn.innerText = userNameInLocalStorage
+    } else {
+        loginBtn.innerText = 'Login | Register'
+    }
+
+
+
+    loginBtn.onclick = function () {
+        modal.style.display = "block";
+    }
+
+    closer.onclick = function () {
+        modal.style.display = "none";
+    }
+
+    window.onclick = function (event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+
+    var form = document.getElementById('FormId')
+
+    form.addEventListener('submit', function(e) {
+        e.preventDefault()
+
+        if(!form.username.value || !form.password.value) {
+            return
+        }
+
+        window.localStorage.setItem('username', form.username.value)
+
+        location.reload()
+    })
+</script>

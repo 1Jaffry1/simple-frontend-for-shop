@@ -103,9 +103,7 @@ nav ul {
 
 nav ul li {
     display: inline;
-    margin-right: auto;
-    border: 2px solid black;
-    border-radius: 10px;
+
     
 }
 
@@ -141,7 +139,7 @@ th {
 }
 
 a:hover {
-    color: blue;
+    color: #2e79c4;
 }
 
 form {
@@ -288,7 +286,7 @@ form {
 }
 .form-group button {
     width: 100%;
-    padding: 10px;
+    /* padding: 10px; */
     background-color: #4CAF50;
     color: white;
     border: none;

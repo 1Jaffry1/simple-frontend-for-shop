@@ -31,19 +31,26 @@
     <br>
     <hr style="width:60% ;">
     <br>
-    <br>
-    <br>
-    <br>
+
     <nav>
         <ul id="navigator">
-                <li><img src="/images/facbook.png"><a href="index.html">Home</a></li>
-                <li><img src="/images/facbook.png"><a href="products.html">Products</a></li>
-                <li><img src="/images/facbook.png"><a href="table.html">Sizing Guide</a></li>
-                <li><img src="/images/facbook.png"><a href="form.html">Hiring</a></li>
-                <li><img src="/images/facbook.png"><a href="about-us.html">About Us</a></li>
-                <li><img src="/images/facbook.png"><a href="contact.html">Contact Us</a></li>
+            <li><button onclick="window.location.href='index.html'"><img src="/images/twitter.png"> <br>Home</button>
+            <li><button onclick="window.location.href='about-us.html'"><img src="/images/twitter.png"> <br>About
+                    Us</button>
+            <li><button onclick="window.location.href='contact.html'"><img src="/images/twitter.png"> <br>Contact
+                    Us</button>
+            <li><button onclick="window.location.href='table.html'"><img src="/images/twitter.png"> <br>Sizing</button>
+            <li><button onclick="window.location.href='returns.html'"><img src="/images/twitter.png">
+                    <br>Returns</button>
+            <li><button onclick="window.location.href='Form.html'"><img src="/images/twitter.png"> <br>Hiring</button>
+            <li><button onclick="window.location.href='privacy.html'"><img src="/images/twitter.png">
+                    <br>Privacy</button>
+
         </ul>
     </nav>
+
+
+
     <br>
     <hr style="width:60% ;">
 
@@ -114,22 +121,23 @@
     })
 
 
-function topPadder(container, paddingVal, index){
-    let navigator = document.getElementById(container);
+    function topPadder(container, paddingVal, index) {
+        let navigator = document.getElementById(container);
 
-for (let i of navigator.children) {
-    let w = i.children[index]
-    let v = w.firstChild.data.length;
-    let pad = (paddingVal-v)/2;
-    i.style.padding = "70px "+ pad  +"px 0px "+ pad + "px";
-}}
+        for (let i of navigator.children) {
+            let v = (i.innerText.length);
+            let pad = paddingVal - (v / 2);
+            i.children[0].style.width = paddingVal + "px";
 
-topPadder("navigator", 80, 1)
+        }
+    }
 
-for (let i of document.getElementById("firstCat").children) {
-    let v= i.children[0].firstChild.data.length;
-    let pad = (30-v)/2;
-    i.style.padding = "0px "+ pad  +"px 0px "+ pad + "px";
-} 
+    topPadder("navigator", window.innerWidth / 10, 1);
+
+    for (let i of document.getElementById("firstCat").children) {
+        let v = i.children[0].firstChild.data.length;
+        let pad = (30 - v) / 2;
+        i.style.padding = "0px " + pad + "px 0px " + pad + "px";
+    }
 
 </script>

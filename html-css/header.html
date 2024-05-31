@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 
 <header style="margin-bottom: 20px;">
-    <img  onclick="window.location.href='about-us.html'" id="logo" style="cursor:pointer; width: 25%;margin-bottom: -3%; position: relative; left:50%; transform: translate(-50%, -10%); "
+    <img onclick="window.location.href='about-us.html'" id="logo"
+        style="cursor:pointer; width: 25%;margin-bottom: -3%; position: relative; left:50%; transform: translate(-50%, -10%); "
         src="../images/logo2.png">
 </header>
 
@@ -16,18 +17,31 @@
 
     </div>
     <br>
+    <div style="position: absolute; left: 50%; transform: translate(-50%);">
+        <nav>
+            <ul id="firstCat">
+                <li> <a href="men.html">Men's Wear</a></li>
+                <li> <a href="ladies.html">Ladies's Wear</a></li>
+                <li> <a href="children.html">Kids's Wear</a></li>
+                <li> <a href="accessories.html">Accessories</a></li>
+                <li> <a href="Clothing.html">Clothing</a></li>
+            </ul>
+        </nav>
+    </div>
+    <br>
     <hr style="width:60% ;">
     <br>
-    <nav style="clear: both;">
-        <ul>
-            <div class="header-list">
-            <li><a href="index.html" style="background-image: '/images/twitter.png';">Home</a></li>
-            <li><a href="products.html">Products</a></li>
-            <li><a href="table.html">Sizing Guide</a></li>
-            <li><a href="form.html">Job Oppurtunities</a></li>
-            <li><a href="about-us.html">About Us</a></li>
-            <li><a href="contact.html">Contact Us</a></li>
-        </div>
+    <br>
+    <br>
+    <br>
+    <nav>
+        <ul id="navigator">
+                <li><img src="/images/facbook.png"><a href="index.html">Home</a></li>
+                <li><img src="/images/facbook.png"><a href="products.html">Products</a></li>
+                <li><img src="/images/facbook.png"><a href="table.html">Sizing Guide</a></li>
+                <li><img src="/images/facbook.png"><a href="form.html">Hiring</a></li>
+                <li><img src="/images/facbook.png"><a href="about-us.html">About Us</a></li>
+                <li><img src="/images/facbook.png"><a href="contact.html">Contact Us</a></li>
         </ul>
     </nav>
     <br>
@@ -49,13 +63,14 @@
                     <input type="password" id="password" name="password" required>
                 </div>
                 <div class="form-group">
-                    <button type="submit" value="Submit" >Login</button> <!-- submit button -->
+                    <button type="submit" value="Submit">Login</button> <!-- submit button -->
                 </div>
             </form>
         </div>
 
     </div>
 </body>
+
 </html>
 
 <script>
@@ -64,13 +79,11 @@
     var closer = document.getElementsByClassName("close")[0];
     var userNameInLocalStorage = localStorage.getItem("username");
 
-    if(userNameInLocalStorage) {
+    if (userNameInLocalStorage) {
         loginBtn.innerText = userNameInLocalStorage
     } else {
         loginBtn.innerText = 'Login | Register'
     }
-
-
 
     loginBtn.onclick = function () {
         modal.style.display = "block";
@@ -88,10 +101,10 @@
 
     var form = document.getElementById('FormId')
 
-    form.addEventListener('submit', function(e) {
+    form.addEventListener('submit', function (e) {
         e.preventDefault()
 
-        if(!form.username.value || !form.password.value) {
+        if (!form.username.value || !form.password.value) {
             return
         }
 
@@ -99,4 +112,24 @@
 
         location.reload()
     })
+
+
+function topPadder(container, paddingVal, index){
+    let navigator = document.getElementById(container);
+
+for (let i of navigator.children) {
+    let w = i.children[index]
+    let v = w.firstChild.data.length;
+    let pad = (paddingVal-v)/2;
+    i.style.padding = "70px "+ pad  +"px 0px "+ pad + "px";
+}}
+
+topPadder("navigator", 80, 1)
+
+for (let i of document.getElementById("firstCat").children) {
+    let v= i.children[0].firstChild.data.length;
+    let pad = (30-v)/2;
+    i.style.padding = "0px "+ pad  +"px 0px "+ pad + "px";
+} 
+
 </script>

@@ -98,25 +98,31 @@ nav ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
+    
 }
 
 nav ul li {
     display: inline;
-    margin-right: 20px;
+    margin-right: auto;
     border: 2px solid black;
-    border-radius: 20px;
+    border-radius: 10px;
+    
+}
+
+
+nav ul li img { 
+    width: 30px;
 }
 
 
 nav ul li a {
     text-decoration: none;
     color: black;
-}
-
-.header-list li a{
-    padding: 20px 20px;
+    width:40px;
     background-size: 15px;
 }
+
+
 
 table {
     width: 100%;
@@ -181,12 +187,12 @@ form {
     transform: translate(-50%, -50%);
 }
 
-.child {
+/* .child {
     position: absolute;
     top: 50%;
     left: 50%;
     margin: -50px 0 0 -50px;
-  }
+  } */
 
 
   .footer {
@@ -296,3 +302,4 @@ form {
     width: 7%; 
     cursor: pointer;
 }
+

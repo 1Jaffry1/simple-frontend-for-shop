@@ -44,7 +44,7 @@ button {
 
 
 button:hover {
-    background-color: #2F4F4F;
+    background-color: #585f61;
     color: white;
 }
 
@@ -167,14 +167,14 @@ form {
     padding: 10px;
 }
 
-.centerh {
-    /* border: 3px; */
-    /* position: absolute; */
-    /* left: 50%;
+/* .centerh {
+    border: 3px;
+    position: absolute;
+    left: 50%;
     padding: 30px;  
-    width: 50%; */
-    /* transform: translate(0%, 0%); */
-}
+    width: 50%; 
+    transform: translate(0%, 0%);
+} */
 
 .centerv {
     /* border: 3px; */
@@ -287,13 +287,15 @@ form {
 .form-group button {
     width: 100%;
     /* padding: 10px; */
-    background-color: #4CAF50;
+    background-color: #272827;
     color: white;
-    border: none;
+    border: 2px solid white;
     cursor: pointer;
 }
 .form-group button:hover {
-    background-color: #45a049;
+    border: 2px solid black;
+    background-color: white;
+    color: black;
 }
 
 .thumbnail {
@@ -301,3 +303,9 @@ form {
     cursor: pointer;
 }
 
+
+
+#cartBtn {
+    padding: 7px;
+    border-radius: 15px;
+}

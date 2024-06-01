@@ -17,7 +17,7 @@
 
     </div>
     <br>
-    <div style="position: absolute; left: 50%; transform: translate(-50%);">
+    <div style="position: absolute; left: 50%; transform: translate(-50%); margin: auto;">
         <nav>
             <ul id="firstCat">
                 <li> <a href="men.html">Men's Wear</a></li>
@@ -28,8 +28,10 @@
             </ul>
         </nav>
     </div>
-    <br>
-    <hr style="width:60% ;">
+    <div>
+        <br>
+    </div>
+    <hr style="width:60% ;margin-top: 10px;">
     <br>
 
     <nav>
@@ -58,7 +60,7 @@
     <div id="myModal" class="modal">
 
         <div class="modal-content">
-            <span class="close">&times;</span>
+            <span class="close" onclick="closer()">&times;</span>
             <h2>Log in to Your Account</h2>
             <form id="FormId">
                 <div class="form-group">
@@ -76,6 +78,19 @@
         </div>
 
     </div>
+
+
+    <div id="userModal" class="modal">
+
+        <div class="modal-content">
+            <span class="close" onclick="closer()">&times;</span>
+            <h2 id="usernameInModal"></h2>
+            <!-- rerender the line above -->
+            <button id="logoutBtn" onclick="logout()">Log Out</button>
+            <button id="userdetails">User Profile</button>
+        </div>
+
+    </div>
 </body>
 
 </html>
@@ -83,8 +98,25 @@
 <script>
     var modal = document.getElementById("myModal");
     var loginBtn = document.getElementById("loginBtn");
-    var closer = document.getElementsByClassName("close")[0];
     var userNameInLocalStorage = localStorage.getItem("username");
+    // var closer = document.getElementsByClassName("close")[0];
+    var usermodal = document.getElementById("userModal");
+    let itemsInCart = 0;
+    // if (userNameInLocalStorage) {
+    //     closer = document.getElementsByClassName("close")[0];
+    // } else {
+    //     closer = document.getElementsByClassName("close")[1];
+    // }
+
+    function addToCart(){
+        itemsInCart+=1;
+        location.reload();
+    }
+
+    function logout() {
+        localStorage.removeItem("username");
+        location.reload();
+    }
 
     if (userNameInLocalStorage) {
         loginBtn.innerText = userNameInLocalStorage
@@ -93,16 +125,25 @@
     }
 
     loginBtn.onclick = function () {
-        modal.style.display = "block";
+        if (userNameInLocalStorage) {
+            usermodal.style.display = "block";
+        } else {
+            modal.style.display = "block";
+        }
     }
 
-    closer.onclick = function () {
-        modal.style.display = "none";
+    function closer () {
+        if (userNameInLocalStorage){
+        userModal.style.display = "none";}
+        else{
+            modal.style.display = "none";
+        }
     }
 
     window.onclick = function (event) {
         if (event.target == modal) {
             modal.style.display = "none";
+            userModal.style.display = "none";
         }
     }
 
@@ -114,11 +155,11 @@
         if (!form.username.value || !form.password.value) {
             return
         }
-
         window.localStorage.setItem('username', form.username.value)
 
         location.reload()
-    })
+    }
+)
 
 
     function topPadder(container, paddingVal, index) {

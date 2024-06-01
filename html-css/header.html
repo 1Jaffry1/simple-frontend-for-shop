@@ -13,13 +13,18 @@
     </div>
 
     <div>
-        <button id="loginBtn" style="position:relative; transform: translate(35px)"></button>
+        <button id="loginBtn" style="position:relative; transform: translate(35px); padding: 15px;"></button>
+        <button id="cartBtn" hidden style="position:relative; transform: translate(35px, 7px);"
+            onclick="window.location.href='cart.html'">
+            <img src="/images/instagram.png" class="vcn" style="width: 27px;"><br>
+        </button>
+
 
     </div>
     <br>
-    <div style="position: absolute; left: 50%; transform: translate(-50%); margin: auto;">
+    <div style="position: absolute; left: 50%; transform: translate(-50%);;">
         <nav>
-            <ul id="firstCat">
+            <ul id="firstCat" style=" margin-bottom: 10px;">
                 <li> <a href="men.html">Men's Wear</a></li>
                 <li> <a href="ladies.html">Ladies's Wear</a></li>
                 <li> <a href="children.html">Kids's Wear</a></li>
@@ -31,7 +36,7 @@
     <div>
         <br>
     </div>
-    <hr style="width:60% ;margin-top: 10px;">
+    <hr style="width:60%">
     <br>
 
     <nav>
@@ -98,30 +103,23 @@
 <script>
     var modal = document.getElementById("myModal");
     var loginBtn = document.getElementById("loginBtn");
+    var cartBtn = document.getElementById("cartBtn");
     var userNameInLocalStorage = localStorage.getItem("username");
-    // var closer = document.getElementsByClassName("close")[0];
     var usermodal = document.getElementById("userModal");
     let itemsInCart = 0;
-    // if (userNameInLocalStorage) {
-    //     closer = document.getElementsByClassName("close")[0];
-    // } else {
-    //     closer = document.getElementsByClassName("close")[1];
-    // }
-
-    function addToCart(){
-        itemsInCart+=1;
-        location.reload();
-    }
 
     function logout() {
         localStorage.removeItem("username");
+        cartBtn.hidden = true;
         location.reload();
     }
 
     if (userNameInLocalStorage) {
-        loginBtn.innerText = userNameInLocalStorage
+        loginBtn.innerText = userNameInLocalStorage;
+        cartBtn.hidden = false;  // Show the cart button when user is logged in
     } else {
-        loginBtn.innerText = 'Login | Register'
+        loginBtn.innerText = 'Login | Register';
+        cartBtn.hidden = true;  // Hide the cart button when user is not logged in
     }
 
     loginBtn.onclick = function () {
@@ -132,16 +130,16 @@
         }
     }
 
-    function closer () {
-        if (userNameInLocalStorage){
-        userModal.style.display = "none";}
-        else{
+    function closer() {
+        if (userNameInLocalStorage) {
+            userModal.style.display = "none";
+        } else {
             modal.style.display = "none";
         }
     }
 
     window.onclick = function (event) {
-        if (event.target == modal) {
+        if (event.target == modal || event.target == userModal) {
             modal.style.display = "none";
             userModal.style.display = "none";
         }
@@ -155,12 +153,10 @@
         if (!form.username.value || !form.password.value) {
             return
         }
-        window.localStorage.setItem('username', form.username.value)
-
-        location.reload()
-    }
-)
-
+        window.localStorage.setItem('username', form.username.value);
+        cartBtn.hidden = false;  // Show the cart button after login
+        location.reload();
+    });
 
     function topPadder(container, paddingVal, index) {
         let navigator = document.getElementById(container);
@@ -169,7 +165,6 @@
             let v = (i.innerText.length);
             let pad = paddingVal - (v / 2);
             i.children[0].style.width = paddingVal + "px";
-
         }
     }
 

@@ -87,12 +87,14 @@
 
     <div id="userModal" class="modal">
 
-        <div class="modal-content">
-            <span class="close" onclick="closer()">&times;</span>
-            <h2 id="usernameInModal"></h2>
+        <div class="modal-content centerh centerv">
+            <span class="close" onclick="closer()" style="padding-bottom: 5px;">&times;</span>
+            <center>
+            <h4 id="usernameInModal"></h2>
             <!-- rerender the line above -->
-            <button id="logoutBtn" onclick="logout()">Log Out</button>
-            <button id="userdetails">User Profile</button>
+                <button id="logoutBtn" onclick="logout()">Log Out</button>
+                <button id="userdetails">User Profile</button>
+            </center>
         </div>
 
     </div>
@@ -117,6 +119,8 @@
     if (userNameInLocalStorage) {
         loginBtn.innerText = userNameInLocalStorage;
         cartBtn.hidden = false;  // Show the cart button when user is logged in
+        document.getElementById("usernameInModal").innerText = "Hello "+userNameInLocalStorage+"!";
+
     } else {
         loginBtn.innerText = 'Login | Register';
         cartBtn.hidden = true;  // Hide the cart button when user is not logged in

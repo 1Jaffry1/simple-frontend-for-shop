@@ -6,7 +6,7 @@ for (let i = 0; i < products.length; i++) {
 
 function setProduct(product, index, price) {
     product.onclick = function () {
-        window.location.href = document.location.parent + "/../products/" + product.getAttribute("name");
+        window.location.href = document.location.parent + "/../product.html?name=" + product.getAttribute("name");
     }
 
     // product.getElementsByTagName("h2")[0].innerHTML = "Product " + product.getAttribute("name")[product.getAttribute("name").length-3, product.getAttribute("name").length-1];

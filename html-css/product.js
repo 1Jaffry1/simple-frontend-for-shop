@@ -13,7 +13,7 @@ let products = [
 for (let i = 0; i < products.length; i++) {
     products[i].price = products[i].index * 10;
     products[i].currentPrice = products[i].index * 7 + 0.99;
-
+    
 }
 
 let params = new URLSearchParams(window.location.search);
@@ -93,8 +93,9 @@ addCartBtn.onclick = function () {
         }
 
         localStorage.setItem("cart", items.filter(item => item).map(item => JSON.stringify(item)).join(";") + ";");
-        console.log(cartItems);
         alert("Added to cart");
+        localStorage.setItem("itemsInCart", Number(localStorage.getItem("itemsInCart")) + 1);
+        document.getElementById("cartCount").innerHTML = ("Cart ("+localStorage.getItem("itemsInCart")+")");
     } else {
         alert("Please select a size");
     }

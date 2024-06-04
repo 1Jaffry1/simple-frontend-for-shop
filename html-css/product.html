@@ -132,9 +132,11 @@ body {
 }
 
 .quantity {
-    width: 50px;
+    width: 100px;
     padding: 5px;
     margin-right: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
 }
 
 .add-to-cart-button {
@@ -149,22 +151,15 @@ body {
     background-color: #cc0000;
 }
 
+.reviewItem {
+    display: flex;
+    flex-direction: column;
+}
+
 </style>
 
 <body>
     <div id="header"></div>
-
-    <!-- <img id="image" alt="Product image"> -->
-
-    <!-- <h2 id="product-name"></h2>
-
-    <div class="slider" id="slider"></div>
-
-
-    
-    <p id="description"></p>
-    <span id="price"></span> -->
-
 
     <div class="product-container">
         <div class="product-image" id="product-image">
@@ -201,6 +196,18 @@ body {
             </div>
         </div>
     </div>
+
+    <hr style="width: 80%;">
+    <div id="review-section" style="position: relative; left:10%">
+        <h2>Reviews</h2>
+        <div id="reviews"></div>
+        <button id="reviewBtn">Submit a review</button>
+    </div>
+    <div class="modal" id="reviewForm" style="position:relative; left:5%; max-width: 80%;">
+        <button id="closer">&times</button>
+        <h2>Submit a review</h2>
+        <textarea id="reviewText" placeholder="Review"></textarea>
+        <button id="submitReview">Submit</button>
     </div>
     <div id="footer"></div>
     <script src="product.js"></script>

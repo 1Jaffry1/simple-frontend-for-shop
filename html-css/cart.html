@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About us - Tizpa</title>
+    <title>Cart - Tizpa</title>
     <link rel="stylesheet" href="style.css" type="text/css">
 
     <script src="https://code.jquery.com/jquery-3.3.1.js"
@@ -28,8 +28,7 @@
     .cart-item {
     display: flex;
     flex-direction: row;
-    /* justify-content: space-between; */
-    align-items: center; /* Add this to vertically align the items */
+    align-items: center; 
     margin-bottom: 20px;
     padding: 10px;
     border: 1px solid #ddd;
@@ -39,6 +38,7 @@
     min-width: 600px;
     margin: auto;
     transition: 0.5s ease-in-out;
+    cursor: pointer;
 }
 
 .cart-item:hover {
@@ -58,6 +58,12 @@
     position: relative;
 }
 
+.total-price { 
+    position: relative;
+    left:80%;
+    font-size: larger;
+}
+
 </style>
 
 <body>
@@ -69,3 +75,5 @@
     <div id="footer"></div>
     <script src="cart.js" type="text/javascript" language="javascript"></script>
 </body>
+</html>
+

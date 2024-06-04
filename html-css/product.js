@@ -60,6 +60,11 @@ function selectSize(element) {
 }
 
 var addCartBtn = document.getElementById("addCartBtn");
+if (!localStorage.getItem("username")){
+    addCartBtn.innerHTML = "Please login to add to cart";
+    addCartBtn.setAttribute("disabled", "true");  
+    addCartBtn.style.backgroundColor = "grey";  
+}
 var quantity = document.getElementById("quantity").value;   
 
 

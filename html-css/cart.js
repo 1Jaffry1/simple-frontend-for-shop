@@ -17,8 +17,9 @@ cartItems.split(";").forEach((item) => {
         <h2>${newItem.name}</h2>
         <p>Size: ${newItem.size}</p> 
         <p>Quantity: ${newItem.quantity}</p>
-        <p>Price: ${newItem.price}</p>
         </div>
+        <br>
+        <p>Price: ${newItem.price}</p>
         `;
     document.getElementById("mainCart").appendChild(cartItem);
 

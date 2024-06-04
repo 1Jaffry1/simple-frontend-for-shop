@@ -6,7 +6,8 @@ var usermodal = document.getElementById("userModal");
 let itemsInCart = 0;
 
 function logout() {
-    localStorage.removeItem("username");
+    // localStorage.removeItem("username");
+    localStorage.clear();
     cartBtn.hidden = true;
     location.reload();
 }

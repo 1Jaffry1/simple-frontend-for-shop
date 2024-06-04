@@ -11,22 +11,22 @@ let products = [
 ];
 
 for (let i = 0; i < products.length; i++) {
-    products[i].price = products[i].index*10;
-    products[i].currentPrice = products[i].index*7+0.99;
+    products[i].price = products[i].index * 10;
+    products[i].currentPrice = products[i].index * 7 + 0.99;
 
 }
 
 let params = new URLSearchParams(window.location.search);
 let product = products.find(p => p.name === params.get('name'));
 
-document.getElementById("discounted").innerHTML =  "$"+product.price + ".00";
-document.getElementById("newPrice").innerHTML= "$"+ product.currentPrice;
+document.getElementById("discounted").innerHTML = "$" + product.price + ".00";
+document.getElementById("newPrice").innerHTML = "$" + product.currentPrice;
 
-document.getElementById("mainImage").setAttribute("src", "/images/shoes-photo/"+ product.name + "/" + product.name + "-1.jpg");
+document.getElementById("mainImage").setAttribute("src", "/images/shoes-photo/" + product.name + "/" + product.name + "-1.jpg");
 
 let i = 1;
 document.querySelectorAll(".thumbnail").forEach((thumbnail) => {
-    thumbnail.setAttribute("src", "/images/shoes-photo/"+ product.name + "/" + product.name +"-"+ i+ ".jpg");
+    thumbnail.setAttribute("src", "/images/shoes-photo/" + product.name + "/" + product.name + "-" + i + ".jpg");
     i += 1;
 });
 
@@ -50,31 +50,49 @@ setInterval(() => {
 
 let size = null;
 
-document.querySelectorAll(".size-button").forEach((s) => { if (s.getAttribute("disabled")) {s.style.backgroundColor="grey"; s.style.color="black"} ; s.setAttribute("onclick", "selectSize(this)") });
+document.querySelectorAll(".size-button").forEach((s) => { if (s.getAttribute("disabled")) { s.style.backgroundColor = "grey"; s.style.color = "black" }; s.setAttribute("onclick", "selectSize(this)") });
 
 function selectSize(element) {
-    document.querySelectorAll(".size-button").forEach((s) => { if (!s.getAttribute("disabled")) {s.style.backgroundColor = "white" ; s.style.color="black" }});
+    document.querySelectorAll(".size-button").forEach((s) => { if (!s.getAttribute("disabled")) { s.style.backgroundColor = "white"; s.style.color = "black" } });
     element.style.backgroundColor = "green";
     element.style.color = "white";
     size = element.textContent;
 }
 
 var addCartBtn = document.getElementById("addCartBtn");
-if (!localStorage.getItem("username")){
+if (!localStorage.getItem("username")) {
     addCartBtn.innerHTML = "Please login to add to cart";
-    addCartBtn.setAttribute("disabled", "true");  
-    addCartBtn.style.backgroundColor = "grey";  
+    addCartBtn.setAttribute("disabled", "true");
+    addCartBtn.style.backgroundColor = "grey";
 }
-var quantity = document.getElementById("quantity").value;   
+var quantity = document.getElementById("quantity").value;
 
 
 addCartBtn.onclick = function () {
     var cartItems = localStorage.getItem("cart");
+    var quantity = Number(document.getElementById("quantity").value);
+    let found = false;
+
     if (size) {
         if (!cartItems) {
             cartItems = "";
         }
-        localStorage.setItem("cart", cartItems.concat(JSON.stringify({name: product.name, size: size, quantity: quantity, price: product.currentPrice, image: product.image})+";"));
+
+        let items = cartItems.split(";").map(item => item ? JSON.parse(item) : null);
+
+        items = items.map((item) => {
+            if (item && item.name == product.name && item.size == size) {
+                found = true;
+                return { ...item, quantity: Number(item.quantity) + quantity };
+            }
+            return item;
+        });
+
+        if (!found) {
+            items.push({ name: product.name, size: size, quantity: quantity, price: product.currentPrice, image: product.image });
+        }
+
+        localStorage.setItem("cart", items.filter(item => item).map(item => JSON.stringify(item)).join(";") + ";");
         console.log(cartItems);
         alert("Added to cart");
     } else {

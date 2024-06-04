@@ -1,14 +1,223 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title id="title"></title>
 </head>
-<body>
-    <img id="image" alt="Product image">
-    <h2 id="product-name"></h2>
-    <p id="description"></p>
-    <span id="price"></span>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<link rel="stylesheet" href="style.css" type="text/css">
+
+<script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+    crossorigin="anonymous">
+    </script>
+<script>
+    $(function () {
+        $("#header").load("header.html");
+        $("#footer").load("footer.html");
+    });
+</script>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f8f8f8;
+        margin: 0;
+        padding: 0;
+    }
+
+    .product-container {
+        display: flex;
+        justify-content: center;
+        padding: 20px;
+    }
+
+    .product-image {
+        position: relative;
+    }
+
+    .product-image img {
+        width: auto;
+        height: 350px;
+        background-color: #ddd;
+        border: 2px solid grey;
+        border-radius: 10px;
+    }
+
+    #mainImage {
+        transition: transform 0.5s ease-in-out;
+    }
+
+    .thumbnail-images {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 10px;
+    }
+
+    .thumbnail {
+
+        max-height: 80px;
+        cursor: pointer;
+    }
+
+    .product-details {
+        margin-left: 20px;
+    }
+
+    .product-category {
+        color: #555;
+        font-size: 1.2em;
+    }
+
+    .product-title {
+        font-size: 2em;
+        margin: 10px 0;
+    }
+
+    .product-pricing {
+        display: flex;
+        align-items: center;
+        margin: 10px 0;
+    }
+
+    .slashed-price {
+        text-decoration: line-through;
+        color: #888;
+        margin-right: 10px;
+    }
+
+    .current-price {
+        color: #e60000;
+        font-size: 1.5em;
+    }
+
+    .product-sizes {
+        margin: 20px 0;
+    }
+
+    .sizes {
+        display: flex;
+        gap: 10px;
+    }
+
+    .size-button {
+        padding: 10px 20px;
+        border: 1px solid #ccc;
+        background-color: #fff;
+        cursor: pointer;
+
+    }
+
+    .size-button:hover {
+        border-color: #888;
+    }
+
+
+    .size-chart-link {
+        display: block;
+        margin-top: 10px;
+        color: #007bff;
+        text-decoration: none;
+    }
+
+    .size-chart-link:hover {
+        text-decoration: underline;
+    }
+
+    .add-to-cart {
+        display: flex;
+        align-items: center;
+        margin-top: 20px;
+    }
+
+    .quantity {
+        width: 100px;
+        padding: 5px;
+        margin-right: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+
+    .add-to-cart-button {
+        padding: 10px 20px;
+        background-color: #e60000;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+    }
+
+    .add-to-cart-button:hover {
+        background-color: #cc0000;
+    }
+
+    .reviewItem {
+        display: flex;
+        flex-direction: column;
+        border: 2px solid black;
+        border-radius: 15px;
+        margin : 5px;
+        max-width: 60%;
+        padding:10px;
+    }
+</style>
+
+<body>
+    <div id="header"></div>
+
+    <div class="product-container">
+        <div class="product-image" id="product-image">
+            <img id="mainImage" src="" alt="Product Image">
+            <div class="thumbnail-images" id="slider">
+                <img src="" alt="Thumbnail 1" class="thumbnail" onclick="changeImage(this)">
+                <img src="" alt="Thumbnail 2" class="thumbnail" onclick="changeImage(this)">
+                <img src="" alt="Thumbnail 3" class="thumbnail" onclick="changeImage(this)">
+                <img src="" alt="Thumbnail 4" class="thumbnail" onclick="changeImage(this)">
+            </div>
+        </div>
+        <div class="product-details">
+            <h2 class="product-category"></h2>
+            <h1 class="product-title"></h1>
+            <div class="product-pricing">
+                <span class="slashed-price" id="discounted"></span>
+                <span class="current-price" id="newPrice"></span>
+            </div>
+            <div class="product-sizes">
+                <h3>Size</h3>
+                <div class="sizes">
+                    <button class="size-button">37</button>
+                    <button class="size-button">38</button>
+                    <button class="size-button">39</button>
+                    <button class="size-button">40</button>
+                    <button class="size-button">41</button>
+                    <button class="size-button" disabled="true">42</button>
+                </div>
+                <a href="table.html" target="_blank" class="size-chart-link">Size Chart</a>
+            </div>
+            <div class="add-to-cart">
+                <input type="number" value="1" min="1" class="quantity" id="quantity">
+                <button class="add-to-cart-button" id="addCartBtn">Add to Cart</button>
+            </div>
+        </div>
+    </div>
+
+    <hr style="width: 80%;">
+    <div id="review-section" style="position: relative; left:10%">
+        <h2>Reviews</h2>
+        <p id="reviewLoginCheck" style="color:#555"></p>
+        <div id="reviews"></div>
+    </div>
+    <hr style="width: 80%;">
+    <div id="reviewForm" style="position:relative; left:5%; max-width: 80%;">
+        <h2>Submit a review</h2>
+        <textarea id="reviewText" placeholder="Review" style="min-width: 40%;"></textarea>
+        <button id="submitReview" onclick="reviewSubmit()">Submit</button>
+    </div>
+    <div id="footer"></div>
     <script src="product.js"></script>
 </body>
+
+
+
+
 </html>

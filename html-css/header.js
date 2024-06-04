@@ -5,8 +5,17 @@ var userNameInLocalStorage = localStorage.getItem("username");
 var usermodal = document.getElementById("userModal");
 let itemsInCart = 0;
 
+document.getElementById("cartBtn").onmouseover = function () {
+    document.getElementById("cartImage").setAttribute("src", "/images/icon.png/cart.gif");
+}
+document.getElementById("cartBtn").onmouseout = function () {
+    document.getElementById("cartImage").setAttribute("src", "/images/icon.png/cbg.png");
+}
+
+
 function logout() {
-    localStorage.removeItem("username");
+    // localStorage.removeItem("username");
+    localStorage.clear();
     cartBtn.hidden = true;
     location.reload();
 }

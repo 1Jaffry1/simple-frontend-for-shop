@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About us - Tizpa</title>
+    <title>Cart - Tizpa</title>
     <link rel="stylesheet" href="style.css" type="text/css">
 
     <script src="https://code.jquery.com/jquery-3.3.1.js"
@@ -17,11 +17,63 @@
     </script>
 
 </head>
+<style>
 
+    .cart {
+        display: flex;
+        flex-direction: column;
+        /* align-items: center; */
+        padding: 20px;
+    }
+    .cart-item {
+    display: flex;
+    flex-direction: row;
+    align-items: center; 
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    position: relative;
+    min-width: 600px;
+    margin: auto;
+    transition: 0.5s ease-in-out;
+    cursor: pointer;
+}
+
+.cart-item:hover {
+    background-color: #75aeff;
+}
+
+.cart-item img {
+    width: auto;
+    height: 200px;
+    object-fit: cover;
+    margin-right: 20px; /* Add some space between the image and the details */
+}
+
+.cart-items details { 
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.total-price { 
+    position: relative;
+    left:80%;
+    font-size: larger;
+}
+
+</style>
 
 <body>
     <div id="header"></div>
     
 
+    <div class="cart" id="mainCart"></div>
+
     <div id="footer"></div>
+    <script src="cart.js" type="text/javascript" language="javascript"></script>
 </body>
+</html>
+

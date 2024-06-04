@@ -1,12 +1,12 @@
 let products = [
-    { index: 1, name: 'p1', image: '/images/p1/p1-1.jpg', title: 'Product 1', description: 'Description of Product 1.' },
-    { index: 2, name: 'p2', image: '/images/p2/p2-1.jpg', title: 'Product 2', description: 'Description of Product 2.' },
-    { index: 3, name: 'p3', image: '/images/p3/p3-1.jpg', title: 'Product 3', description: 'Description of Product 3.' },
-    { index: 4, name: 'p4', image: '/images/p4/p4-1.jpg', title: 'Product 4', description: 'Description of Product 4.' },
-    { index: 5, name: 'p5', image: '/images/p5/p5-1.jpg', title: 'Product 5', description: 'Description of Product 5.' },
-    { index: 6, name: 'p6', image: '/images/p6/p6-1.jpg', title: 'Product 6', description: 'Description of Product 6.' },
-    { index: 7, name: 'p7', image: '/images/p7/p7-1.jpg', title: 'Product 7', description: 'Description of Product 7.' },
-    { index: 8, name: 'p8', image: '/images/p8/p8-1.jpg', title: 'Product 8', description: 'Description of Product 8.' },
+    { index: 1, name: 'p1', image: '/images/shoes-photo/p1/p1-1.jpg', title: 'Product 1', description: 'Description of Product 1.' },
+    { index: 2, name: 'p2', image: '/images/shoes-photo/p2/p2-1.jpg', title: 'Product 2', description: 'Description of Product 2.' },
+    { index: 3, name: 'p3', image: '/images/shoes-photo/p3/p3-1.jpg', title: 'Product 3', description: 'Description of Product 3.' },
+    { index: 4, name: 'p4', image: '/images/shoes-photo/p4/p4-1.jpg', title: 'Product 4', description: 'Description of Product 4.' },
+    { index: 5, name: 'p5', image: '/images/shoes-photo/p5/p5-1.jpg', title: 'Product 5', description: 'Description of Product 5.' },
+    { index: 6, name: 'p6', image: '/images/shoes-photo/p6/p6-1.jpg', title: 'Product 6', description: 'Description of Product 6.' },
+    { index: 7, name: 'p7', image: '/images/shoes-photo/p7/p7-1.jpg', title: 'Product 7', description: 'Description of Product 7.' },
+    { index: 8, name: 'p8', image: '/images/shoes-photo/p8/p8-1.jpg', title: 'Product 8', description: 'Description of Product 8.' },
     // Add more products as needed
 ];
 
@@ -74,7 +74,7 @@ addCartBtn.onclick = function () {
         if (!cartItems) {
             cartItems = "";
         }
-        localStorage.setItem("cart", cartItems.concat(";"+JSON.stringify({name: product.name, size: size, quantity: quantity, price: product.currentPrice, image: product.image})));
+        localStorage.setItem("cart", cartItems.concat(JSON.stringify({name: product.name, size: size, quantity: quantity, price: product.currentPrice, image: product.image})+";"));
         console.log(cartItems);
         alert("Added to cart");
     } else {

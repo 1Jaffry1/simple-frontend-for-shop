@@ -17,11 +17,53 @@
     </script>
 
 </head>
+<style>
 
+    .cart {
+        display: flex;
+        flex-direction: column;
+        /* align-items: center; */
+        padding: 20px;
+    }
+    .cart-item {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin-bottom: 20px;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        padding: 10px;
+        position: relative;
+        min-width: 600px;
+        margin: auto;
+    }
+
+    .cart-item img {
+        float: left;
+        width: auto;
+        height: 200px;
+        object-fit: cover;
+    }
+
+    .cart-items details { 
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        float:right;
+    }
+    .cart-item h2 {
+        margin: 0;
+    }
+
+</style>
 
 <body>
     <div id="header"></div>
     
 
+    <div class="cart" id="mainCart"></div>
+
     <div id="footer"></div>
+    <script src="cart.js" type="text/javascript" language="javascript"></script>
 </body>

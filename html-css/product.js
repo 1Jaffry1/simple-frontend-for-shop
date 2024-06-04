@@ -102,15 +102,24 @@ addCartBtn.onclick = function () {
 
 
 //review section
-var rBtn = document.getElementById("reviewBtn");
+var form = document.getElementById("reviewForm");
 if (!localStorage.getItem("username")) {
-    rBtn.setAttribute("disabled", "true");
-    rBtn.innerHTML = "Please login to add a review";
-    rBtn.style.backgroundColor = "grey";
-} else{
-    rBtn.onclick = function () {
+    form.setAttribute("hidden", "true");
+    document.getElementById("reviewLoginCheck").innerHTML = "Please login to add a review";
+    form.style.backgroundColor = "grey";
+} else {
+    form.onclick = function () {
         document.getElementById("reviewForm").style.display = "block";
+    }
 }
+
+
+document.getElementById("submitReview").onclick = function () {
+    var review = document.getElementById("reviewText").value;
+    var username = localStorage.getItem("username");
+    reviews += JSON.stringify({ username: username, review: review }) + ";";
+    localStorage.setItem("reviews", reviews);
+    location.reload();
 }
 
 
@@ -119,21 +128,12 @@ if (!reviews) {
     reviews = "";
 }
 
-reviews = reviews.split(";");
-
-reviews.forEach((review) => {
-    if (review) {
-        let reviewObj = JSON.parse(review);
-        let person = reviewObj.person;
-        let reviewText = reviewObj.review;
-    }
-    let reviewItem = document.createElement("div").innerHTML = "<h3>" + person + "</h3><p>" + reviewText + "</p>";
-    reviewItem.className = "reviewItem";
-});
-
-var reviewForm = document.getElementById("reviewForm");
-reviewForm.onsubmit = function (event) {
-    event.preventDefault();
-    let person = localStorage.getItem("username");
-    let reviewText = reviewForm.reviewText.value;
-    localStorage.setItem("reviews", reviews + JSON.stringify({ person: person, review: reviewText }) + ";");}
+reviews.split(";").forEach((review) => {
+    if (review === "") { return; }
+    let r = JSON.parse(review);
+    let reviewDiv = document.createElement("div");
+    reviewDiv.innerHTML = `<h3>User[${r.username}] says:</h3><p>${r.review}</p>`;
+    reviewDiv.className = "reviewItem";
+    document.getElementById("review-section").appendChild(reviewDiv);
+}
+)

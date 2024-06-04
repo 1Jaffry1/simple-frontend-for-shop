@@ -20,142 +20,146 @@
 </script>
 
 <style>
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f8f8f8;
-    margin: 0;
-    padding: 0;
-}
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f8f8f8;
+        margin: 0;
+        padding: 0;
+    }
 
-.product-container {
-    display: flex;
-    justify-content: center;
-    padding: 20px;
-}
+    .product-container {
+        display: flex;
+        justify-content: center;
+        padding: 20px;
+    }
 
-.product-image {
-    position: relative;
-}
+    .product-image {
+        position: relative;
+    }
 
-.product-image img {
-    width: auto;
-    height: 350px;
-    background-color: #ddd;
-    border: 2px solid grey;
-    border-radius: 10px;
-}
+    .product-image img {
+        width: auto;
+        height: 350px;
+        background-color: #ddd;
+        border: 2px solid grey;
+        border-radius: 10px;
+    }
 
-#mainImage {
-    transition: transform 0.5s ease-in-out;
-}
+    #mainImage {
+        transition: transform 0.5s ease-in-out;
+    }
 
-.thumbnail-images {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 10px;
-}
+    .thumbnail-images {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 10px;
+    }
 
-.thumbnail {
+    .thumbnail {
 
-    max-height: 80px;
-    cursor: pointer;
-}
+        max-height: 80px;
+        cursor: pointer;
+    }
 
-.product-details {
-    margin-left: 20px;
-}
+    .product-details {
+        margin-left: 20px;
+    }
 
-.product-category {
-    color: #555;
-    font-size: 1.2em;
-}
+    .product-category {
+        color: #555;
+        font-size: 1.2em;
+    }
 
-.product-title {
-    font-size: 2em;
-    margin: 10px 0;
-}
+    .product-title {
+        font-size: 2em;
+        margin: 10px 0;
+    }
 
-.product-pricing {
-    display: flex;
-    align-items: center;
-    margin: 10px 0;
-}
+    .product-pricing {
+        display: flex;
+        align-items: center;
+        margin: 10px 0;
+    }
 
-.slashed-price {
-    text-decoration: line-through;
-    color: #888;
-    margin-right: 10px;
-}
+    .slashed-price {
+        text-decoration: line-through;
+        color: #888;
+        margin-right: 10px;
+    }
 
-.current-price {
-    color: #e60000;
-    font-size: 1.5em;
-}
+    .current-price {
+        color: #e60000;
+        font-size: 1.5em;
+    }
 
-.product-sizes {
-    margin: 20px 0;
-}
+    .product-sizes {
+        margin: 20px 0;
+    }
 
-.sizes {
-    display: flex;
-    gap: 10px;
-}
+    .sizes {
+        display: flex;
+        gap: 10px;
+    }
 
-.size-button {
-    padding: 10px 20px;
-    border: 1px solid #ccc;
-    background-color: #fff;
-    cursor: pointer;
+    .size-button {
+        padding: 10px 20px;
+        border: 1px solid #ccc;
+        background-color: #fff;
+        cursor: pointer;
 
-}
+    }
 
-.size-button:hover {
-    border-color: #888;
-}
+    .size-button:hover {
+        border-color: #888;
+    }
 
 
-.size-chart-link {
-    display: block;
-    margin-top: 10px;
-    color: #007bff;
-    text-decoration: none;
-}
+    .size-chart-link {
+        display: block;
+        margin-top: 10px;
+        color: #007bff;
+        text-decoration: none;
+    }
 
-.size-chart-link:hover {
-    text-decoration: underline;
-}
+    .size-chart-link:hover {
+        text-decoration: underline;
+    }
 
-.add-to-cart {
-    display: flex;
-    align-items: center;
-    margin-top: 20px;
-}
+    .add-to-cart {
+        display: flex;
+        align-items: center;
+        margin-top: 20px;
+    }
 
-.quantity {
-    width: 100px;
-    padding: 5px;
-    margin-right: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
+    .quantity {
+        width: 100px;
+        padding: 5px;
+        margin-right: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
 
-.add-to-cart-button {
-    padding: 10px 20px;
-    background-color: #e60000;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-}
+    .add-to-cart-button {
+        padding: 10px 20px;
+        background-color: #e60000;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+    }
 
-.add-to-cart-button:hover {
-    background-color: #cc0000;
-}
+    .add-to-cart-button:hover {
+        background-color: #cc0000;
+    }
 
-.reviewItem {
-    display: flex;
-    flex-direction: column;
-}
-
+    .reviewItem {
+        display: flex;
+        flex-direction: column;
+        border: 2px solid black;
+        border-radius: 15px;
+        margin : 5px;
+        max-width: 60%;
+        padding:10px;
+    }
 </style>
 
 <body>
@@ -200,14 +204,14 @@ body {
     <hr style="width: 80%;">
     <div id="review-section" style="position: relative; left:10%">
         <h2>Reviews</h2>
+        <p id="reviewLoginCheck" style="color:#555"></p>
         <div id="reviews"></div>
-        <button id="reviewBtn">Submit a review</button>
     </div>
-    <div class="modal" id="reviewForm" style="position:relative; left:5%; max-width: 80%;">
-        <button id="closer">&times</button>
+    <hr style="width: 80%;">
+    <div id="reviewForm" style="position:relative; left:5%; max-width: 80%;">
         <h2>Submit a review</h2>
-        <textarea id="reviewText" placeholder="Review"></textarea>
-        <button id="submitReview">Submit</button>
+        <textarea id="reviewText" placeholder="Review" style="min-width: 40%;"></textarea>
+        <button id="submitReview" onclick="reviewSubmit()">Submit</button>
     </div>
     <div id="footer"></div>
     <script src="product.js"></script>

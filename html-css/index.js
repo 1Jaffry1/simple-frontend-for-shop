@@ -3,6 +3,7 @@ for (let i = 0; i < products.length; i++) {
     products[i].setAttribute('name', "msh" + (i+1));
     setProduct(products[i], i+1);
     products[i].innerHTML += '<div><br><button class="add-to-cart">Add to Cart</button></div> '
+    products[i].getElementsByTagName("span")[0].innerHTML = "$" + (i+1)*10*0.7 + ".99";
 }
 // setProduct(createProduct("msh10", "this is disc1", 12, "shoe4"));
 

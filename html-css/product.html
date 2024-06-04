@@ -54,7 +54,7 @@ body {
 }
 
 .thumbnail {
-    max-width: auto;
+
     max-height: 80px;
     cursor: pointer;
 }
@@ -79,13 +79,13 @@ body {
     margin: 10px 0;
 }
 
-.original-price {
+.slashed-price {
     text-decoration: line-through;
     color: #888;
     margin-right: 10px;
 }
 
-.discounted-price {
+.current-price {
     color: #e60000;
     font-size: 1.5em;
 }
@@ -173,11 +173,11 @@ body {
             </div>
         </div>
         <div class="product-details">
-            <h2 class="product-category">Ladies</h2>
-            <h1 class="product-title">Arch Fit Uplift - Jasper</h1>
+            <h2 class="product-category"></h2>
+            <h1 class="product-title"></h1>
             <div class="product-pricing">
-                <span class="original-price">$119.99</span>
-                <span class="discounted-price">$99.98</span>
+                <span class="slashed-price" id="discounted"></span>
+                <span class="current-price" id="newPrice"></span>
             </div>
             <div class="product-sizes">
                 <h3>Size</h3>

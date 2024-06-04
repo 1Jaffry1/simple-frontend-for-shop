@@ -41,6 +41,8 @@ body {
     width: auto;
     height: 350px;
     background-color: #ddd;
+    border: 2px solid grey;
+    border-radius: 10px;
 }
 
 #mainImage {
@@ -104,11 +106,13 @@ body {
     border: 1px solid #ccc;
     background-color: #fff;
     cursor: pointer;
+
 }
 
 .size-button:hover {
     border-color: #888;
 }
+
 
 .size-chart-link {
     display: block;
@@ -183,16 +187,17 @@ body {
                 <h3>Size</h3>
                 <div class="sizes">
                     <button class="size-button">37</button>
-                    <button class="size-button">37</button>
-                    <button class="size-button">37</button>
-                    <button class="size-button">37</button>
-                    <button class="size-button">37</button>
+                    <button class="size-button">38</button>
+                    <button class="size-button">39</button>
+                    <button class="size-button">40</button>
+                    <button class="size-button">41</button>
+                    <button class="size-button" disabled="true">42</button>
                 </div>
-                <a href="#" class="size-chart-link">Size Chart</a>
+                <a href="table.html" target="_blank" class="size-chart-link">Size Chart</a>
             </div>
             <div class="add-to-cart">
-                <input type="number" value="1" min="1" class="quantity">
-                <button class="add-to-cart-button">Add to Cart</button>
+                <input type="number" value="1" min="1" class="quantity" id="quantity">
+                <button class="add-to-cart-button" id="addCartBtn">Add to Cart</button>
             </div>
         </div>
     </div>

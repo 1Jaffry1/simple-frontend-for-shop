@@ -43,3 +43,31 @@ setInterval(() => {
         mainImage.style.opacity = 1; // Fade in by setting opacity to 1
     }, 0); // Wait for 500 milliseconds before changing the image and fading in
 }, 3000);
+
+
+
+let size = null;
+
+document.querySelectorAll(".size-button").forEach((s) => { if (s.getAttribute("disabled")) {s.style.backgroundColor="grey"; s.style.color="black"} ; s.setAttribute("onclick", "selectSize(this)") });
+
+function selectSize(element) {
+    document.querySelectorAll(".size-button").forEach((s) => { if (!s.getAttribute("disabled")) {s.style.backgroundColor = "white" ; s.style.color="black" }});
+    element.style.backgroundColor = "green";
+    element.style.color = "white";
+    size = element.textContent;
+}
+
+var addCartBtn = document.getElementById("addCartBtn");
+var quantity = document.getElementById("quantity").value;   
+
+
+addCartBtn.onclick = function () {
+    var cartItems = localStorage.getItem("cart");
+    if (size) {
+        localStorage.setItem("cart", cartItems.concat(JSON.stringify({name: product.name, size: size, quantity: quantity})));
+        console.log(cartItems);
+        alert("Added to cart");
+    } else {
+        alert("Please select a size");
+    }
+}

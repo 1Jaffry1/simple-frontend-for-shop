@@ -3,7 +3,8 @@ var loginBtn = document.getElementById("loginBtn");
 var cartBtn = document.getElementById("cartBtn");
 var userNameInLocalStorage = localStorage.getItem("username");
 var usermodal = document.getElementById("userModal");
-let itemsInCart = 0;
+document.getElementById("cartCount").innerHTML = ("Cart ("+localStorage.getItem("itemsInCart")+")");
+
 
 document.getElementById("cartBtn").onmouseover = function () {
     document.getElementById("cartImage").setAttribute("src", "/images/icon.png/cart.gif");
@@ -11,6 +12,7 @@ document.getElementById("cartBtn").onmouseover = function () {
 document.getElementById("cartBtn").onmouseout = function () {
     document.getElementById("cartImage").setAttribute("src", "/images/icon.png/cbg.png");
 }
+
 
 
 function logout() {
@@ -63,6 +65,7 @@ form.addEventListener('submit', function (e) {
     }
     window.localStorage.setItem('username', form.username.value);
     cartBtn.hidden = false;  // Show the cart button after login
+    localStorage.setItem("itemsInCart",0);
     location.reload();
 });
 

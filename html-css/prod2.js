@@ -10,46 +10,30 @@ let products = [
     // Add more products as needed
 ];
 
+
 let params = new URLSearchParams(window.location.search);
 let product = products.find(p => p.name === params.get('name'));
 
-// document.getElementById("header").display = "none";
-// document.getElementById('title').textContent = product.title;
-document.getElementById("product-image").getElementById("mainImage").setAttribute("src", "/images/shoes-photo/p"+product.index+"/p"+product.index+"-1.jpg")
-// document.getElementById('image').src = product.image;
-for (let i=1; i<5;i++){
-    const tempImg = document.createElement("img");
-    tempImg.setAttribute("src", "/images/shoes-photo/p"+product.index+"/p"+product.index+"-"+i+".jpg");
-    tempImg.className =  "thumbnail";
-    tempImg.onclick = changeImage(tempImg);
-    document.getElementById('slider').insertAdjacentElement('beforeend', tempImg);
-}
-console.log(document.getElementById('slider'));
-document.getElementById('product-name').textContent = product.title;
-document.getElementById('description').textContent = product.description;
-document.getElementById('price').textContent = product.price;
+document.getElementById("mainImage").setAttribute("src", "/images/shoes-photo/p"+product.index+"/p"+product.index+"-1.jpg");
 
-
-//for slideshow
-// let slides = document.querySelectorAll('.slider img');
-// let currentSlide = 0;
-
-// // Initially show the first slide
-// slides[currentSlide].classList.add('active');
-
-// // Function to advance to the next slide
-// function nextSlide() {
-//     slides[currentSlide].classList.remove('active');
-//     currentSlide = (currentSlide+1)%slides.length;
-//     slides[currentSlide].classList.add('active');
-// }
-
-// // Change slide every 2 seconds
-// setInterval(nextSlide, 2000);
-
+let i = 1;
+document.querySelectorAll(".thumbnail").forEach((thumbnail) => {
+    thumbnail.setAttribute("src", "/images/shoes-photo/p" + product.index + "/p" + product.index + "-" + i + ".jpg");
+    i+=1;
+});
 
 function changeImage(element) {
     var mainImage = document.getElementById('mainImage');
     mainImage.src = element.src;
 }
 
+
+setInterval(() => {
+    i = (i % 4) + 1;
+    let mainImage = document.getElementById("mainImage");
+    mainImage.style.opacity = 0; // Set initial opacity to 0
+    setTimeout(() => {
+        mainImage.setAttribute("src", "/images/shoes-photo/p" + product.index + "/p" + product.index + "-" + i + ".jpg");
+        mainImage.style.opacity = 1; // Fade in by setting opacity to 1
+    }, 0); // Wait for 500 milliseconds before changing the image and fading in
+}, 3000);

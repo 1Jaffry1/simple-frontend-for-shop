@@ -47,7 +47,7 @@ function removeItem(index) {
     cartItems.splice(index, 1);
     localStorage.setItem("cart", cartItems.join(";"));
     localStorage.setItem("itemsInCart", localStorage.getItem("itemsInCart") - 1);
-    document.getElementById("cartCount").innerHTML = ("Cart ("+localStorage.getItem("itemsInCart")+")");
+    document.getElementById("cartCount").innerHTML = ("Cart ("+localStorage.getItem("itemsInCart")-1+")");
     location.reload(); // Reload the page to update the cart
 }
 
